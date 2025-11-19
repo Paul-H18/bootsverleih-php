@@ -2,7 +2,10 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+use CodeIgniter\Config\Services;
+
+
+class HomeController extends BaseController
 {
     public function index(): string
     {
