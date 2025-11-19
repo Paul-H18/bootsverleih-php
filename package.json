@@ -1,0 +1,30 @@
+{
+  "name": "bootsverleih",
+  "version": "1.0.0",
+  "description": "Schulprojekt Bootsverleih",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paul-H18/bootsverleih-php.git"
+  },
+  "author": "Paul-H18",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paul-H18/bootsverleih-php/issues"
+  },
+  "homepage": "https://github.com/Paul-H18/bootsverleih-php#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
+    "vite": "^7.2.2"
+  }
+}
