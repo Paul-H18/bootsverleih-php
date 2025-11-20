@@ -14,6 +14,7 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 registration: resolve(__dirname, 'resources/js/registration.js'),
+                login: resolve(__dirname, 'resources/js/login.js'),
             },
             output: {
                 entryFileNames: '[name].js',
