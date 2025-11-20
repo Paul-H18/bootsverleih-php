@@ -6,7 +6,12 @@
 
 
 @section('body')
-    <div id="login"></div>
+    <div id="login" class="w-full h-full">
 
+    </div>
+@endsection
+
+
+@section('scripts')
     <script type="module" src="{{ base_url('build/login.js') }}"></script>
 @endsection

@@ -9,5 +9,6 @@ use App\Controllers\RegistrationController;
  * @var RouteCollection $routes
  */
 $routes->get('/', [HomeController::class, 'index']);
-$routes->get('/login', [LoginController::class, 'index']);
-$routes->get('/registration', [RegistrationController::class, 'index']);
+$routes->get('/login', [LoginController::class, 'index'], ['as' => 'login']);
+$routes->get('/registration', [RegistrationController::class, 'index'], ['as' => 'registration']);
+$routes->post('/registration/register', [RegistrationController::class, 'register'], ['as' => 'registration.register']);

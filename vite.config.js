@@ -18,9 +18,11 @@ export default defineConfig({
             },
             output: {
                 entryFileNames: '[name].js',
-                assetFileNames: 'app.css',
+                chunkFileNames: '[name].js',
+                assetFileNames: '[name].[ext]',
             }
-        }
+        },
+        cssCodeSplit: false,
     },
     css: {
         devSourcemap: false
