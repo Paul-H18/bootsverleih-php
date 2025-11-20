@@ -1,1 +1,0 @@
-import{c as o,o as t,a as r,b as n}from"./assets/app-DWuRng7c.js";const s="Hello World",a={__name:"Registration",setup(l){return console.log(s),(c,e)=>(t(),o("div",null,[...e[0]||(e[0]=[r("h1",null,"VueJS Works - Registration",-1)])]))}};n(a).mount("#registration");
