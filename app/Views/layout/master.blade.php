@@ -22,7 +22,7 @@
                 register: '{{ route_to('registration.register') }}',
             },
             login: {
-
+                login: '{{ route_to('login.login') }}',
             },
         }
     }

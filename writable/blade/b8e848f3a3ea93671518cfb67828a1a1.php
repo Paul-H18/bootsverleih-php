@@ -22,7 +22,7 @@
                 register: '<?php echo e(route_to('registration.register')); ?>',
             },
             login: {
-
+                login: '<?php echo e(route_to('login.login')); ?>',
             },
         }
     }
