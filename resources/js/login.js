@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import Registration from './vue/Registration.vue'
+import Login from './vue/Login.vue'
 
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
@@ -14,4 +14,4 @@ const vuetify = createVuetify({
     directives,
 })
 
-createApp(Registration).use(vuetify).mount('#registration')
+createApp(Login).use(vuetify).mount('#login')

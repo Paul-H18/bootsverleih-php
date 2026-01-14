@@ -5,8 +5,8 @@
 
 
 <?php $__env->startSection('body'); ?>
-    <h1 class="text-red-500"><?php echo e($title); ?></h1>
-    <h3 class="text-amber-700">Coole Page!</h3>
+    <h1 class=""><?php echo e($title); ?></h1>
+    <h3 class="">Coole Page!</h3>
 
 
 
