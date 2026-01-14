@@ -15,6 +15,7 @@ export default defineConfig({
             input: {
                 registration: resolve(__dirname, 'resources/js/registration.js'),
                 login: resolve(__dirname, 'resources/js/login.js'),
+                navigation: resolve(__dirname, 'resources/js/navigation.js'),
             },
             output: {
                 entryFileNames: '[name].js',

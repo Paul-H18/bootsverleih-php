@@ -10,6 +10,8 @@
 </head>
 <body class="bg-gray-900 text-gray-100 ">
 
+@include('layout.navbar')
+
 @yield('body')
 
 
@@ -27,7 +29,7 @@
         }
     }
 </script>
-
+<script type="module" src="{{ base_url('build/navigation.js') }}"></script>
 @yield('scripts')
 
 </body>
