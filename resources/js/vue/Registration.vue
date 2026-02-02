@@ -2,10 +2,11 @@
     <v-app>
         <v-main>
             <div class="bg-gray-900 w-full h-full flex justify-center align-center">
-                <v-card class="w-2/4 h-3/4 bg-emerald-500 flex justify-center align-center rounded-3xl"
+                <v-card class="w-2/4 h-3/4 bg-emerald-500 flex flex-col justify-center align-center rounded-3xl"
                         variant="elevated"
                         elevation="16"
                 >
+                  <h1 class="text-3xl mt-6">Registrierung</h1>
                     <v-form ref="formElement" class="p-16 w-full h-full flex flex-col gap-4" @submit.prevent="submitForm" :action="actionUrl" method="POST">
                         <input type="hidden" :name="csrfToken" :value="csrfHash">
                         <v-text-field v-model="form.email"
@@ -17,18 +18,18 @@
                         >
 
                         </v-text-field>
-                        <v-text-field v-model="form.first_name"
-                                      name="first_name"
+                        <v-text-field v-model="form.firstname"
+                                      name="firstname"
                                       label="Vorname"
                                       class="bg-emerald-500 active:bg-emerald-500  h-12"
-                                      :rules="rules.first_name"
+                                      :rules="rules.firstname"
                         >
 
                         </v-text-field>
-                        <v-text-field v-model="form.last_name"
+                        <v-text-field v-model="form.lastname"
                                       label="Name"
                                       class="bg-emerald-500 active:bg-emerald-500 h-12"
-                                      :rules="rules.last_name"
+                                      :rules="rules.lastname"
                         >
 
                         </v-text-field>
@@ -45,7 +46,10 @@
                             <input type="checkbox" v-model="form.is_admin" id="is_admin" class="" />
                             <label for="is_admin">Admin-Benutzer</label>
                         </div>
-                        <v-btn class="w-1/4 bg-gray-900 text-gray-100" type="submit">Registrieren</v-btn>
+                        <div class="flex flex-row gap-6 items-center">
+                          <v-btn class="w-1/4 bg-gray-900 text-gray-100" type="submit">Registrieren</v-btn>
+                          <a :href="loginUrl" class="text-sm underline text-blue-700 duration-200 hover:text-blue-950">Oder hier einloggen</a>
+                        </div>
                     </v-form>
 
                 </v-card>
@@ -66,16 +70,19 @@ const csrfToken = window.backend?.token || 'csrf_token_name';
 const csrfHash = window.backend?.hash || '';
 const actionUrl = window.backend?.routes?.registration?.register || '#';
 
+const loginUrl = window.backend?.routes?.login?.index;
+
+
 
 const rules = {
     email: [
         v => !!v || 'E-Mail muss augefüllt sein!',
         v => /.+@.+\..+/.test(v) || 'E-Mail muss augefüllt und valide sein!',
     ],
-    first_name: [
+    firstname: [
         v => !!v || 'Vorname muss augefüllt sein!',
     ],
-    last_name: [
+    lastname: [
         v => !!v || 'Nachname muss augefüllt sein!',
     ],
     password: [

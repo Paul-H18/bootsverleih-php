@@ -4,6 +4,7 @@ use CodeIgniter\Router\RouteCollection;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
 use App\Controllers\RegistrationController;
+use App\Controllers\BookingController;
 
 /**
  * @var RouteCollection $routes
@@ -18,4 +19,5 @@ $routes->post('/registration/register', [RegistrationController::class, 'registe
 $routes->group('', ['filter' => 'authentication'], function ($routes) {
     $routes->get('/', [HomeController::class, 'index']);
     $routes->get('/logout', [LoginController::class, 'logout'], ['as' => 'login.logout']);
+    $routes->get('/buchung', [BookingController::class, 'index'], ['as' => 'booking.index']);
 });

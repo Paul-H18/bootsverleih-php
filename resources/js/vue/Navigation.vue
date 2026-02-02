@@ -11,20 +11,12 @@
 </template>
 
 <script setup>
+import {NavigationItems} from "../utils/Constants.js";
 
 console.log('Navbar loaded')
 
 
-const navigationItems = [
-  {
-    label: 'Home',
-    route: '/',
-  },
-  {
-    label: 'Logout',
-    route: '/logout',
-  },
-]
+const navigationItems = NavigationItems;
 
 </script>
 

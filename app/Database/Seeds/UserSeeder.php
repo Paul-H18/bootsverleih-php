@@ -18,8 +18,8 @@ class UserSeeder extends Seeder
             $this->db->table('users')->insert([
                 'email' => 'admin@ort-online.net',
                 'password' => 'admin',
-                'first_name' => 'Paul',
-                'last_name' => 'Admin-Account',
+                'firstname' => 'Paul',
+                'lastname' => 'Admin-Account',
                 'role' => UserRoles::ADMIN->value,
                 'created_at' => $date,
                 'updated_at' => $date,
@@ -31,8 +31,8 @@ class UserSeeder extends Seeder
             $this->db->table('users')->insert([
                 'email' => $faker->email,
                 'password' => 'admin',
-                'first_name' => $faker->firstName,
-                'last_name' => $faker->lastName,
+                'firstname' => $faker->firstName,
+                'lastname' => $faker->lastName,
                 'role' => UserRoles::CUSTOMER->value,
                 'created_at' => $date,
                 'updated_at' => $date,
