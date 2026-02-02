@@ -29,12 +29,12 @@ class UserMigration extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
             ],
-            'first_name' => [
+            'firstname' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
                 'null'       => true,
             ],
-            'last_name' => [
+            'lastname' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 100,
                 'null'       => true,

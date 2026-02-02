@@ -20,8 +20,8 @@ class RegistrationController extends BaseController
     {
         $data = [
             'email' => $this->request->getPost('email'),
-            'first_name'    => $this->request->getPost('first_name'),
-            'last_name'    => $this->request->getPost('last_name'),
+            'firstname'    => $this->request->getPost('firstname'),
+            'lastname'    => $this->request->getPost('lastname'),
             'password' => $this->request->getPost('password'),
             'role' => $this->request->getPost('is_admin') ? UserRoles::ADMIN->value : UserRoles::CUSTOMER->value,
         ];

@@ -9,6 +9,10 @@
 
 </head>
 <body class="bg-gray-900 text-gray-100 ">
+@if(!url_is('login') && !url_is('registration'))
+    @include('layout.navbar')
+@endif
+
 
 @yield('body')
 
@@ -19,15 +23,17 @@
         hash: '{{ csrf_hash() }}',
         routes: {
             registration: {
+                index: '{{ route_to('registration') }}',
                 register: '{{ route_to('registration.register') }}',
             },
             login: {
+                index: '{{ route_to('login') }}',
                 login: '{{ route_to('login.login') }}',
             },
         }
     }
 </script>
-
+<script type="module" src="{{ base_url('build/navigation.js') }}"></script>
 @yield('scripts')
 
 </body>

@@ -5,12 +5,8 @@
 
 
 <?php $__env->startSection('body'); ?>
-    <h1 class=""><?php echo e($title); ?></h1>
+    <h1 class="text-3xl"><?php echo e($title); ?></h1>
     <h3 class="">Coole Page!</h3>
-
-
-
-
 
 
 
