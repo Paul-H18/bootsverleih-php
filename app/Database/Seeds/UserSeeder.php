@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         if(!$user) {
             $this->db->table('users')->insert([
                 'email' => 'admin@ort-online.net',
-                'password' => 'admin',
+                'password' => password_hash('admin', PASSWORD_DEFAULT),
                 'firstname' => 'Paul',
                 'lastname' => 'Admin-Account',
                 'role' => UserRoles::ADMIN->value,
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             $date = date('Y-m-d H:i:s');
             $this->db->table('users')->insert([
                 'email' => $faker->email,
-                'password' => 'admin',
+                'password' => password_hash('admin', PASSWORD_DEFAULT),
                 'firstname' => $faker->firstName,
                 'lastname' => $faker->lastName,
                 'role' => UserRoles::CUSTOMER->value,

@@ -7,7 +7,11 @@
 <?php $__env->startSection('body'); ?>
     <h1>Buchung</h1>
     <div id="Buchung" class="w-full h-full">
-
+        <ul>
+            <?php $__currentLoopData = $piers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pier): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><?php echo e($pier['name']); ?> - <?php echo e($pier['is_active']); ?></li>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        </ul>
     </div>
 <?php $__env->stopSection(); ?>
 
