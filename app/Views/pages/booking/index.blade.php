@@ -6,13 +6,11 @@
 
 
 @section('body')
-    <h1>Buchung</h1>
-    <div id="Buchung" class="w-full h-full">
-        <ul>
-            @foreach($piers as $pier)
-                <li>{{ $pier['name'] }} - {{ $pier['is_active'] }}</li>
-            @endforeach
-        </ul>
-    </div>
+    <div id="booking" class="w-full h-full" data-items='@json($piers)'></div>
+@endsection
+
+
+@section('scripts')
+    <script type="module" src="{{ base_url('build/booking.js') }}"></script>
 @endsection
 

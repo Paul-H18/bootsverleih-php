@@ -19,7 +19,12 @@ class Pier extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
             ],
-            'place_number' => [
+            'pos_x' => [
+                'type'       => 'INT',
+                'constraint' => 11,
+                'unsigned'   => true,
+            ],
+            'pos_y' => [
                 'type'       => 'INT',
                 'constraint' => 11,
                 'unsigned'   => true,

@@ -12,7 +12,7 @@ class BookingController extends BaseController
     public function index()
     {
         $pierModel = new Pier();
-        $piers = $pierModel->where('is_active', true)->findAll();
+        $piers = $pierModel->findAll();
         return Services::blade()->render('pages.booking.index', [
             'title' => 'Buchung',
             'piers' => $piers,
