@@ -1,10 +1,18 @@
 <template>
   <v-app>
-    <v-card class="h-full w-full p-1 border-gray-900"
+    <v-card class="h-full w-full"
             :class="[bookable.is_active ? 'active' : 'inactive']"
+            :disabled="!bookable.is_active"
+            @click="prepareCheckout"
     >
-      <div class="-rotate-90 text-xs font-light">
-        {{ bookable.name }}
+      <div class="text-xs font-light flex justify-center item-center pt-4">
+        <span>
+          {{ bookable.name }}
+        </span>
+        <span v-if="bookable.has_boat">
+          <span>b</span>
+          <v-icon icon="mdi-sail-boat"></v-icon>
+        </span>
       </div>
     </v-card>
   </v-app>
@@ -15,8 +23,21 @@
 const props = defineProps({
   bookable: {
     type: Object,
+  },
+  user: {
+    type: Object
   }
 });
+
+const emit = defineEmits(['checkout']);
+
+
+function prepareCheckout() {
+  emit('checkout', {
+    bookable: props.bookable
+  })
+
+}
 
 </script>
 

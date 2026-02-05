@@ -5,7 +5,7 @@
 
 
 <?php $__env->startSection('body'); ?>
-    <div id="booking" class="w-full h-full" data-items='<?php echo json_encode($piers, 15, 512) ?>'></div>
+    <div id="booking" class="w-full h-full" data-items='<?php echo json_encode($piers, 15, 512) ?>' data-user='<?php echo json_encode($user, 15, 512) ?>'></div>
 <?php $__env->stopSection(); ?>
 
 

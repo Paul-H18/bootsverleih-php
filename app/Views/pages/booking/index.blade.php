@@ -6,7 +6,7 @@
 
 
 @section('body')
-    <div id="booking" class="w-full h-full" data-items='@json($piers)'></div>
+    <div id="booking" class="w-full h-full" data-items='@json($piers)' data-user='@json($user)'></div>
 @endsection
 
 

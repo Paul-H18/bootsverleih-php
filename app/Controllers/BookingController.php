@@ -13,9 +13,16 @@ class BookingController extends BaseController
     {
         $pierModel = new Pier();
         $piers = $pierModel->findAll();
+
+        $user = session()->get('user');
+        if($user['password']) {
+            unset($user['password']);
+        }
+
         return Services::blade()->render('pages.booking.index', [
             'title' => 'Buchung',
             'piers' => $piers,
+            'user' => $user,
         ]);
     }
 }

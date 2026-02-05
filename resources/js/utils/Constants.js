@@ -12,3 +12,9 @@ export const NavigationItems = [
         route: '/logout',
     },
 ]
+
+
+export const UserRoles = {
+    ADMIN: 'administrator',
+    CUSTOMER: 'customer',
+}

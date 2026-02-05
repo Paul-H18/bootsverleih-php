@@ -29,6 +29,7 @@ class LoginController extends BaseController
         if ($user) {
             if (password_verify($password, $user['password'])) {
                 $sessionData = [
+                    'user' => $user,
                     'id' => $user['id'],
                     'email' => $user['email'],
                     'firstname' => $user['firstname'],

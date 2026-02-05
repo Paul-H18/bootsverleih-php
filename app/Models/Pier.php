@@ -12,7 +12,7 @@ class Pier extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['name', 'pos_x', 'pos_y', 'has_boat', 'is_active'];
+    protected $allowedFields    = ['name', 'pos_x', 'pos_y', 'has_boat', 'price', 'is_active'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -20,6 +20,7 @@ class Pier extends Model
     protected array $casts = [
         'pos_x' => 'int',
         'pos_y' => 'int',
+        'price' => 'float',
         'has_boat' => 'boolean',
         'is_active' => 'boolean',
     ];

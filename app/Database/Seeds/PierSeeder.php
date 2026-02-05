@@ -12,11 +12,13 @@ class PierSeeder extends Seeder
         $count = 1;
         for ($j = 0; $j < 4; $j++) {
             for ($i = 0; $i < 7; $i++) {
+                $hasBoat = rand(0,1);
                 $this->db->table('piers')->insert([
                     'name' => 'Anleger ' . $count,
                     'pos_x' => $i,
                     'pos_y' => $j,
-                    'has_boat' => rand(0,1),
+                    'has_boat' => $hasBoat,
+                    'price' => $hasBoat ? 99.99 : 49.99,
                     'is_active' => true,
                     'created_at' => \Carbon\Carbon::now(),
                     'updated_at' => \Carbon\Carbon::now(),

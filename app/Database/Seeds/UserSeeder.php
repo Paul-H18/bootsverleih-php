@@ -26,6 +26,20 @@ class UserSeeder extends Seeder
             ]);
         }
 
+        $user = $this->db->table('users')->where('email', 'paul.hornig@ort-online.net')->get()->getRow();
+
+        if(!$user) {
+            $this->db->table('users')->insert([
+                'email' => 'paul.hornig@ort-online.net',
+                'password' => password_hash('admin', PASSWORD_DEFAULT),
+                'firstname' => 'Paul',
+                'lastname' => 'Tester',
+                'role' => UserRoles::CUSTOMER->value,
+                'created_at' => $date,
+                'updated_at' => $date,
+            ]);
+        }
+
         for ($i = 0; $i < 15; $i++) {
             $date = date('Y-m-d H:i:s');
             $this->db->table('users')->insert([

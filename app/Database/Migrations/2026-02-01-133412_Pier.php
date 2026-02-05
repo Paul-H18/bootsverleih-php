@@ -29,6 +29,12 @@ class Pier extends Migration
                 'constraint' => 11,
                 'unsigned'   => true,
             ],
+            'price' => [
+                'type'       => 'DECIMAL',
+                'constraint' => '10,2',
+                'null'       => true,
+                'default'    => null,
+            ],
             'has_boat' => [
                 'type'       => 'TINYINT',
                 'constraint' => 1,
