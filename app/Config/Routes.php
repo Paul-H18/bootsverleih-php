@@ -20,4 +20,5 @@ $routes->group('', ['filter' => 'authentication'], function ($routes) {
     $routes->get('/', [HomeController::class, 'index']);
     $routes->get('/logout', [LoginController::class, 'logout'], ['as' => 'login.logout']);
     $routes->get('/buchung', [BookingController::class, 'index'], ['as' => 'booking.index']);
+    $routes->post('/buchung/bezahlen', [BookingController::class, 'pay'], ['as' => 'booking.pay']);
 });

@@ -30,6 +30,9 @@
                 index: '{{ route_to('login') }}',
                 login: '{{ route_to('login.login') }}',
             },
+            booking: {
+                pay: '{{ route_to('booking.pay') }}'
+            }
         }
     }
 </script>

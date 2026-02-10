@@ -25,4 +25,35 @@ class BookingController extends BaseController
             'user' => $user,
         ]);
     }
+
+    public function pay()
+    {
+        $rules = [
+            'start_date' => [
+                'label' => 'Von',
+                'rules' => 'required|valid_date'
+            ],
+            'end_date' => [
+                'label' => 'Bis',
+                'rules' => 'required|valid_date|greater_than_or_equal[start_date]',
+                'errors' => [
+                    'greater_than_or_equal' => 'Das enddatum muss hinter dem Startdatum liegen'
+                ]
+            ]
+        ];
+
+        if (!$this->validate($rules)) {
+            return Services::blade()->render('booking_dates_invalid', [
+                'errors' => $this->validator->getErrors(),
+                'validation' => $this->validator,
+            ]);
+        }
+
+        $startDate = $this->request->getPost('start_date');
+        $endDate = $this->request->getPost('end_date');
+
+        return Services::blade()->render('pages.booking.pay', [
+            'title' => 'Bezahlung',
+        ]);
+    }
 }
