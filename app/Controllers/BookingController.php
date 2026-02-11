@@ -30,7 +30,7 @@ class BookingController extends BaseController
         ]);
     }
 
-    public function pay()
+    public function success()
     {
         $allowedMethods = implode(',', array_column(PaymentMethods::cases(), 'value'));
 
@@ -76,7 +76,7 @@ class BookingController extends BaseController
             ]);
         }
 
-        if($pier['is_active'] != true) {
+        if(!$pier['is_active'] || !$this->checkIfPierIsAvailable($startDate, $endDate, $pier)) {
             return Services::blade()->render('pages.booking.pierInactive');
         }
 
@@ -91,10 +91,7 @@ class BookingController extends BaseController
             'payment_method' => $paymentMethod,
             'pier_id' => $pier['id'],
             'user_id' => $user['id'],
-            'data' => [],
             'status' => BookingStates::BOOKED->value,
-            'created_at' => Time::now(),
-            'updated_at' => Time::now(),
         ];
 
         $bookingModel = new Booking();
@@ -103,9 +100,9 @@ class BookingController extends BaseController
 
         if ($bookingId) {
             $booking = $bookingModel->find($bookingId);
-            $pierModel->update($pier['id'], [
-                'is_active' => 0,
-            ]);
+
+            $this->addBookingToPierDataset($booking, $pier);
+
             return Services::blade()->render('pages.booking.orderSuccess', [
                 'title' => 'Buchung erfolgreich',
                 'booking' => $booking,
@@ -122,4 +119,43 @@ class BookingController extends BaseController
             'title' => 'Bezahlung',
         ]);
     }
+
+    private function checkIfPierIsAvailable(string $startDate, string $endDate, array $pier): bool {
+        if (empty($pier['booking_data'])) {
+            return true;
+        }
+
+        $newStart = new \DateTime($startDate);
+        $newEnd = new \DateTime($endDate);
+
+        foreach ($pier['booking_data'] as $bookingId => $existingBooking) {
+            $existingStart = new \DateTime($existingBooking['starting_at']);
+            $existingEnd = new \DateTime($existingBooking['ending_at']);
+
+            if ($newStart < $existingEnd && $newEnd > $existingStart) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    private function addBookingToPierDataset(array $booking, array $pier) {
+        $pierModel = new Pier();
+        $pierData = $pier['booking_data'] ?? [];
+
+        $pierData[$booking['id']] = [
+            'booking_id' => $booking['id'],
+            'user_id' => $booking['user_id'],
+            'starting_at' => $booking['starting_at'],
+            'ending_at' => $booking['ending_at'],
+        ];
+
+        $pierModel->update($pier['id'], [
+            'booking_data' => $pierData,
+        ]);
+
+    }
+
 }

@@ -6,9 +6,9 @@
 
 
 @section('body')
-    <h1 class="text-3xl">Buchung fehlgeschlagen</h1>
+    <h1 class="text-3xl text-center">Buchung fehlgeschlagen</h1>
 
-    <div class="text-lg">
+    <div class="text-lg m-12 text-center">
         <p>
             Leider konnte die Buchung nicht abgeschlossen werden, da der Anleger bereits belegt ist.
         </p>

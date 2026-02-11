@@ -31,7 +31,7 @@
                 login: '{{ route_to('login.login') }}',
             },
             booking: {
-                pay: '{{ route_to('booking.pay') }}'
+                success: '{{ route_to('booking.success') }}'
             }
         }
     }

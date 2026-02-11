@@ -63,7 +63,7 @@ const formElement = ref(null);
 
 const csrfToken = window.backend?.token || 'csrf_token_name';
 const csrfHash = window.backend?.hash || '';
-const actionUrl = window.backend?.routes?.booking?.pay || '#';
+const actionUrl = window.backend?.routes?.booking?.success || '#';
 
 const props = defineProps({
   user: {

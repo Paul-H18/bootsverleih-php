@@ -45,6 +45,11 @@ class Pier extends Migration
                 'constraint' => 1,
                 'default'    => 1,
             ],
+            'booking_data' => [
+                'type' => 'JSON',
+                'null' => false,
+                'default' => '[]',
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,

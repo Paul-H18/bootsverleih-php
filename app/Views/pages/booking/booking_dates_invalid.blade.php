@@ -6,9 +6,9 @@
 
 
 @section('body')
-    <h1 class="text-3xl">Fehler</h1>
+    <h1 class="text-3xl text-center">Fehler</h1>
 
-    <div>
+    <div class="text-center m-12">
         <p>
             Das Startdatum muss vor dem Enddatum liegen!
         </p>

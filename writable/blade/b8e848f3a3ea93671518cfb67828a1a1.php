@@ -31,7 +31,7 @@
                 login: '<?php echo e(route_to('login.login')); ?>',
             },
             booking: {
-                pay: '<?php echo e(route_to('booking.pay')); ?>'
+                success: '<?php echo e(route_to('booking.success')); ?>'
             }
         }
     }

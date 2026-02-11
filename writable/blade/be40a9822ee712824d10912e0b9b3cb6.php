@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title'); ?>
     <?php echo e($title); ?>
 
@@ -7,7 +9,7 @@
 <?php $__env->startSection('body'); ?>
     <h1 class="text-3xl text-center"><?php echo e($title); ?></h1>
 
-    <div class="text-lg text-center">
+    <div class="text-lg text-center m-12">
         <p>Ihre Buchung war erfolgreich!</p>
         <br>
         <p>

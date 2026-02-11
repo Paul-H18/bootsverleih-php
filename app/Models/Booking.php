@@ -12,19 +12,18 @@ class Booking extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['user_id', 'pier_id', 'starting_at', 'ending_at', 'data', 'status'];
+    protected $allowedFields    = ['user_id', 'pier_id', 'starting_at', 'ending_at', 'payment_method', 'data', 'status'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 
     protected array $casts = [
         'id' => 'int',
-        'data' => 'json-array',
     ];
     protected array $castHandlers = [];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

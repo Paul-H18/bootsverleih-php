@@ -22,5 +22,5 @@ $routes->group('', ['filter' => 'authentication'], function ($routes) {
     $routes->get('/logout', [LoginController::class, 'logout'], ['as' => 'login.logout']);
     $routes->get('/buchung', [BookingController::class, 'index'], ['as' => 'booking.index']);
     $routes->get('/buchungen', [BookingHistoryController::class, 'index'], ['as' => 'bookingHistory.index']);
-    $routes->post('/buchung/bezahlen', [BookingController::class, 'pay'], ['as' => 'booking.pay']);
+    $routes->post('/buchung/buchung-erfolgreich', [BookingController::class, 'success'], ['as' => 'booking.success']);
 });

@@ -8,7 +8,7 @@
 @section('body')
     <h1 class="text-3xl text-center">{{ $title }}</h1>
 
-    <div class="text-lg text-center">
+    <div class="text-lg text-center m-12">
         <p>Ihre Buchung war erfolgreich!</p>
         <br>
         <p>

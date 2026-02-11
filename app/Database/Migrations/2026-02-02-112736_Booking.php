@@ -33,10 +33,6 @@ class Booking extends Migration
                 'type' => 'DATETIME',
                 'null' => false,
             ],
-            'data' => [
-                'type' => 'JSON',
-                'null' => true,
-            ],
             'status' => [
                 'type'       => 'ENUM',
                 'constraint' => ['booked', 'cancelled', 'open'],
