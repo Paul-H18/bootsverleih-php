@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title'); ?>
     Registrierung
 <?php $__env->stopSection(); ?>
