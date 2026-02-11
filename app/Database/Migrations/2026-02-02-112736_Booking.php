@@ -42,6 +42,11 @@ class Booking extends Migration
                 'constraint' => ['booked', 'cancelled', 'open'],
                 'default'    => 'open',
             ],
+            'payment_method' => [
+                'type' => 'ENUM',
+                'constraint' => ['cash', 'cc', 'paypal', 'ratepay', 'invoice'],
+                'default' => 'cash',
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,

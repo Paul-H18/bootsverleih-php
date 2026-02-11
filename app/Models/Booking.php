@@ -19,8 +19,6 @@ class Booking extends Model
 
     protected array $casts = [
         'id' => 'int',
-        'starting_at' => 'datetime',
-        'ending_at' => 'datetime',
         'data' => 'json-array',
     ];
     protected array $castHandlers = [];

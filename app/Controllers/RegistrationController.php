@@ -30,6 +30,7 @@ class RegistrationController extends BaseController
         if($user->insert($data)) {
             return Services::blade()->render('pages.auth.login', ['title' => 'Login']);
         }
+        return Services::blade()->render('pages.errors.custom.error');
     }
 
 }

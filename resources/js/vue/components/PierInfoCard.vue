@@ -9,7 +9,9 @@
       Boot inkl.: {{ bookable.has_boat ? 'Ja' : 'Nein' }}
     </span>
     <span class="text-sm text-black text-center">
-      Preis: {{ bookable.price }} €
+      <strong>
+        Preis: {{ bookable.price }} €
+      </strong>
     </span>
     <span class="text-sm text-black text-center">
       Buchung möglich: {{ bookable.is_active ? 'Ja' : 'Nein' }}

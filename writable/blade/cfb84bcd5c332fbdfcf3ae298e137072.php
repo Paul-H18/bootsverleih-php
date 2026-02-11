@@ -8,7 +8,7 @@
     <h1 class="text-3xl"><?php echo e($title); ?></h1>
 
 
-    
+
 
 
 

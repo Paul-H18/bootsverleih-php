@@ -16,12 +16,29 @@
             <label for="end_date">Bis: </label>
             <input type="date" name="end_date" v-model="endDate">
           </div>
-          <div class="text-red-700 text-[10px]">
-            Achtung: Datumsangaben im US-Format!
+          <div class="text-orange-700 text-[8px] text-center mt-2">
+            Achtung: Je nach Browser, Datumsangaben im US-Format!
           </div>
 
+          <div>
+            <v-select v-model="paymentMethod"
+                      :items="paymentMethods"
+                      label="Zahlungsmethode"
+                      item-title="label"
+                      item-value="method"
+                      item-disabled="active"
+            >
 
-          <v-btn type="submit">Submit</v-btn>
+            </v-select>
+          </div>
+
+          <input type="hidden" name="payment_method" :value="paymentMethod" />
+          <input type="hidden" name="pier_id" :value="bookable?.id" />
+
+          <div class="flex justify-center w-full gap-2">
+            <v-btn type="submit">Kostenpflichtig Buchen</v-btn>
+          </div>
+
         </v-form>
       </v-card>
     </div>
@@ -33,12 +50,16 @@
 import Header from "./Header.vue";
 import PierInfoCard from "./PierInfoCard.vue";
 import {ref} from "vue";
+import {PaymentMethods} from "../../utils/Constants.js";
 
-const bookable = defineModel('bookable')
+const bookable = defineModel('bookable');
 
-const startDate = ref(null)
-const endDate = ref(null)
-const formElement = ref(null)
+const paymentMethods = PaymentMethods;
+
+const startDate = ref(null);
+const endDate = ref(null);
+const paymentMethod = ref(null);
+const formElement = ref(null);
 
 const csrfToken = window.backend?.token || 'csrf_token_name';
 const csrfHash = window.backend?.hash || '';
@@ -54,8 +75,9 @@ const props = defineProps({
 function submitForm() {
   console.log(startDate.value)
   console.log(endDate.value)
+  console.log(paymentMethod.value)
 
-  if(endDate.value && startDate.value) {
+  if(endDate.value && startDate.value && paymentMethod.value) {
     formElement.value.$el.submit();
   }
 
@@ -70,6 +92,11 @@ function submitForm() {
   display: flex;
   flex-direction: row;
   gap: 18px;
+
+  border: #000000 solid 1px;
+  border-radius: 25px;
+  padding: 10px;
+  margin-bottom: 10px;
 
 
 }
