@@ -11,15 +11,19 @@
         <p>Ihre Buchung war erfolgreich!</p>
         <br>
         <p>
-            Wir erwarten Sie am <?php echo e($booking['starting_at']); ?> bei uns in Plau am See.
+            Wir erwarten Sie am <?php echo e($startDate); ?> bei uns in Plau am See.
             <br>
             Ihr gebuchter Anleger "<?php echo e($pier['name']); ?>" steht ab 12 uhr für Sie zur Verfügung.
         </p>
         <p>
             <?php if($booking['payment_method'] === 'cash'): ?>
-                Bitte denken Sie daran den Betrag von über <?php echo e($pier['price']); ?>€ am Anreisetag vorne am Schalter zu bezahlen.
+                Bitte denken Sie daran den Betrag von über <?php echo e($pier['price']); ?>€ am Anreisetag vorne am Schalter,
+                <br>
+                bar ,zu bezahlen.
             <?php else: ?>
-                Sie erhalten in kürze Ihre Zahlungsbestätigung per E-Mail. Zeigen Sie diese bitte am Anreisetag vorne am Schalter vor.
+                Sie erhalten in kürze Ihre Zahlungsbestätigung per E-Mail. Zeigen Sie diese bitte am Anreisetag
+                <br>
+                vorne am Schalter vor.
             <?php endif; ?>
             <br>
         </p>

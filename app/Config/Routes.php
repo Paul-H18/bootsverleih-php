@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\BookingHistoryController;
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\HomeController;
 use App\Controllers\LoginController;
@@ -20,5 +21,6 @@ $routes->group('', ['filter' => 'authentication'], function ($routes) {
     $routes->get('/', [HomeController::class, 'index']);
     $routes->get('/logout', [LoginController::class, 'logout'], ['as' => 'login.logout']);
     $routes->get('/buchung', [BookingController::class, 'index'], ['as' => 'booking.index']);
+    $routes->get('/buchungen', [BookingHistoryController::class, 'index'], ['as' => 'bookingHistory.index']);
     $routes->post('/buchung/bezahlen', [BookingController::class, 'pay'], ['as' => 'booking.pay']);
 });

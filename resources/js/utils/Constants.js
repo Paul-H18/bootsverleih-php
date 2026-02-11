@@ -8,6 +8,10 @@ export const NavigationItems = [
         route: '/buchung',
     },
     {
+        label: 'Buchungsverlauf',
+        route: '/buchungen',
+    },
+    {
         label: 'Logout',
         route: '/logout',
     },

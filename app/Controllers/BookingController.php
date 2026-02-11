@@ -9,6 +9,7 @@ use App\Models\Booking;
 use App\Models\Pier;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Config\Services;
+use CodeIgniter\I18n\Time;
 
 class BookingController extends BaseController
 {
@@ -92,6 +93,8 @@ class BookingController extends BaseController
             'user_id' => $user['id'],
             'data' => [],
             'status' => BookingStates::BOOKED->value,
+            'created_at' => Time::now(),
+            'updated_at' => Time::now(),
         ];
 
         $bookingModel = new Booking();
@@ -106,7 +109,7 @@ class BookingController extends BaseController
             return Services::blade()->render('pages.booking.orderSuccess', [
                 'title' => 'Buchung erfolgreich',
                 'booking' => $booking,
-                'start_date' => Time::parse($booking['starting_at'])->toLocalizedString('dd.MM.yyyy'),
+                'startDate' => Time::parse($booking['starting_at'])->toLocalizedString('dd.MM.yyyy'),
                 'user' => $user,
                 'pier' => $pier,
             ]);

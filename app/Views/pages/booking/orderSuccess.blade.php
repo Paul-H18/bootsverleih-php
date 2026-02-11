@@ -12,15 +12,19 @@
         <p>Ihre Buchung war erfolgreich!</p>
         <br>
         <p>
-            Wir erwarten Sie am {{ $booking['starting_at'] }} bei uns in Plau am See.
+            Wir erwarten Sie am {{ $startDate }} bei uns in Plau am See.
             <br>
             Ihr gebuchter Anleger "{{ $pier['name'] }}" steht ab 12 uhr für Sie zur Verfügung.
         </p>
         <p>
             @if($booking['payment_method'] === 'cash')
-                Bitte denken Sie daran den Betrag von über {{ $pier['price'] }}€ am Anreisetag vorne am Schalter zu bezahlen.
+                Bitte denken Sie daran den Betrag von über {{ $pier['price'] }}€ am Anreisetag vorne am Schalter,
+                <br>
+                bar ,zu bezahlen.
             @else
-                Sie erhalten in kürze Ihre Zahlungsbestätigung per E-Mail. Zeigen Sie diese bitte am Anreisetag vorne am Schalter vor.
+                Sie erhalten in kürze Ihre Zahlungsbestätigung per E-Mail. Zeigen Sie diese bitte am Anreisetag
+                <br>
+                vorne am Schalter vor.
             @endif
             <br>
         </p>
