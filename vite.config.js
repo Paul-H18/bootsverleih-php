@@ -1,12 +1,19 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
-
-
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
     plugins: [
         vue(),
+        viteStaticCopy({
+            targets: [
+                {
+                    src: 'assets/images/*',
+                    dest: 'images'
+                }
+            ]
+        })
     ],
     build: {
         outDir: 'public/build',
@@ -14,12 +21,17 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 registration: resolve(__dirname, 'resources/js/registration.js'),
+                login: resolve(__dirname, 'resources/js/login.js'),
+                navigation: resolve(__dirname, 'resources/js/navigation.js'),
+                booking: resolve(__dirname, 'resources/js/booking.js'),
             },
             output: {
                 entryFileNames: '[name].js',
-                assetFileNames: 'app.css',
+                chunkFileNames: '[name].js',
+                assetFileNames: '[name].[ext]',
             }
-        }
+        },
+        cssCodeSplit: false,
     },
     css: {
         devSourcemap: false

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c050841a96192f3cadc144685cc14d73",
+    "content-hash": "b932bfba1677a432446f81697e38b722",
     "packages": [
         {
             "name": "aminos/codeigniter-blade",
